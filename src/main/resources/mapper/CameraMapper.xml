@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shenzhen.teamway.mapper.CameraMapper" >
+  <resultMap id="BaseResultMap" type="com.shenzhen.teamway.model.Camera" >
+    <result column="device_code" property="deviceCode" jdbcType="VARCHAR" />
+    <result column="rtsp_url" property="rtspUrl" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="manufacturer" property="manufacturer" jdbcType="VARCHAR" />
+    <result column="model" property="model" jdbcType="VARCHAR" />
+    <result column="owner" property="owner" jdbcType="VARCHAR" />
+    <result column="civil_code" property="civilCode" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="parental" property="parental" jdbcType="INTEGER" />
+    <result column="register_way" property="registerWay" jdbcType="INTEGER" />
+    <result column="cert_num" property="certNum" jdbcType="VARCHAR" />
+    <result column="certifiable" property="certifiable" jdbcType="INTEGER" />
+    <result column="err_code" property="errCode" jdbcType="INTEGER" />
+    <result column="secrecy" property="secrecy" jdbcType="INTEGER" />
+    <result column="ip_address" property="ipAddress" jdbcType="VARCHAR" />
+    <result column="d_port" property="dPort" jdbcType="INTEGER" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+  </resultMap>
+  <insert id="insert" parameterType="com.shenzhen.teamway.model.Camera" >
+    insert into camera (device_code, rtsp_url, name, 
+      manufacturer, model, owner, 
+      civil_code, address, parental, 
+      register_way, cert_num, certifiable, 
+      err_code, secrecy, ip_address, 
+      d_port, status)
+    values (#{deviceCode,jdbcType=VARCHAR}, #{rtspUrl,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{manufacturer,jdbcType=VARCHAR}, #{model,jdbcType=VARCHAR}, #{owner,jdbcType=VARCHAR}, 
+      #{civilCode,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{parental,jdbcType=INTEGER}, 
+      #{registerWay,jdbcType=INTEGER}, #{certNum,jdbcType=VARCHAR}, #{certifiable,jdbcType=INTEGER}, 
+      #{errCode,jdbcType=INTEGER}, #{secrecy,jdbcType=INTEGER}, #{ipAddress,jdbcType=VARCHAR}, 
+      #{dPort,jdbcType=INTEGER}, #{status,jdbcType=VARCHAR})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select device_code, rtsp_url, name, manufacturer, model, owner, civil_code, address, 
+    parental, register_way, cert_num, certifiable, err_code, secrecy, ip_address, d_port, 
+    status
+    from camera
+  </select>
+  <select id="findCameraByCode"  resultMap="BaseResultMap">
+     select device_code, rtsp_url, name, manufacturer, model, owner, civil_code, address,
+    parental, register_way, cert_num, certifiable, err_code, secrecy, ip_address, d_port,
+    status
+    from camera  where device_code=#{code}
+  </select>
+</mapper>

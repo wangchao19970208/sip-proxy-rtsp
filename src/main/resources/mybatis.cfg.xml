@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <!-- <properties resource="conf.properties"></properties> -->
+
+    <!--<typeAliases>-->
+        <!--<typeAlias alias="PlatformInfo" type="shenzhen.teamway.pdms.db.pojo.PlatformInfo"/>-->
+    <!--</typeAliases>-->
+    <environments default="development">
+
+        <environment id="development">
+
+            <transactionManager type="JDBC"></transactionManager>
+
+            <dataSource type="POOLED">
+
+                <property name="driver" value="com.mysql.jdbc.Driver" />
+
+                <property name="url" value="${jdbc.url}" />
+
+                <property name="username" value="${jdbc.username}" />
+
+                <property name="password" value="${jdbc.password}" />
+
+            </dataSource>
+
+        </environment>
+
+    </environments>
+    <!--<environments default="development">-->
+        <!--<environment id="development">-->
+            <!--<transactionManager type="JDBC">-->
+            <!--</transactionManager>-->
+            <!--<dataSource type="POOLED">-->
+                <!--<property name="driverClass" value="${jdbc.driver}"/>-->
+                <!--<property name="url" value="${jdbc.url}"/>-->
+                <!--<property name="user" value="${jdbc.username}"/>-->
+                <!--<property name="password" value="${jdbc.password}"/>-->
+                <!--<property name="breakAfterAcquireFailure" value="false"/>-->
+                <!--&lt;!&ndash;获得链接的同时检验其有效性&ndash;&gt;-->
+                <!--<property name="testConnectionOnCheckin" value="true"/>-->
+                <!--<property name="preferredTestQuery" value="SELECT 1"/>-->
+                <!--<property name="testConnectionOnCheckout" value="true"/>-->
+                <!--<property name="testConnectionOnCheckin" value="false"/>-->
+                <!--<property name="idleConnectionTestPeriod" value="0"/>-->
+
+            <!--</dataSource>-->
+        <!--</environment>-->
+    <!--</environments>-->
+
+    <mappers>
+        <!--引用你的empmapper.xml文件  -->
+        <mapper resource="mapper/CameraMapper.xml"/>
+    </mappers>
+
+    <!-- <settings>
+        <setting name="logImpl" value="STDOUT_LOGGING" />
+    </settings> -->
+
+</configuration>
+

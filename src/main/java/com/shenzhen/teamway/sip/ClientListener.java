@@ -69,6 +69,8 @@ public class ClientListener implements SipListener {
 
 	private String ipVideoServer;
 
+
+
 	//视频请求当前摄像机
 	private Camera camera;
 
@@ -443,7 +445,6 @@ public class ClientListener implements SipListener {
 					}
 
 				}
-				log.info("SipServer接收视频流地址:"+ipVideoServer+":"+serverVideoPort);
 				String[] split1 = s.split("\r\n");
 				for (String s1 : split1) {
 					int ip = s1.indexOf("IP4");
@@ -465,6 +466,7 @@ public class ClientListener implements SipListener {
 			}
 			sipProxyServer.setRemoteAddr(ipVideoServer);
 			sipProxyServer.setRemotePort(serverVideoPort);
+			log.info("SipServer接收视频流地址:"+ipVideoServer+":"+serverVideoPort);
 			createRtspClient(remoteIp,remotePort,getLocalIp(),sipProxyServer,camera);
 		}
 	}

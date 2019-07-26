@@ -59,7 +59,7 @@ public class JainSipClient {
 	public static void main(String[] args) {
 		JainSipClient client = getInstance();
 		client.init();
-		client.sendMessage(ClientListener.getFromName(), ClientListener.getFromIpPort(), ClientListener.getToName(), ClientListener.getToIpPort(), "", Request.MESSAGE);
+		client.sendMessage(ClientListener.getFromName(), ClientListener.getFromIpPort(), ClientListener.getToName(), ClientListener.getToIpPort(), "", Request.REGISTER);
 	}
 
 	private JainSipClient() {

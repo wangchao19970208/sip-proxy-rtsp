@@ -74,7 +74,7 @@ public class SipProxyServer  {
 			   log.info("启用SipProxy发送端口：" + port);
 			   break;
 		   } catch (IOException e) {
-			   log.info("启用SipProxy发送端口占用：" + port);
+			   log.info("SipProxy发送端口占用：" + port);
 			   port += 2;
 		   }
 	   }
